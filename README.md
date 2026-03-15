@@ -21,9 +21,7 @@ keyboard input
 
 **Daemon (`keystroke`)** runs silently as a systemd user service. It reads raw keyboard events directly from `/dev/input/` using Linux's evdev interface — the same layer the kernel uses to handle input devices. Every keydown event increments that key's count in memory and flushes it to a local SQLite database. No key sequences are ever stored — only counts.
 
-**Viewer (`keystroke-stats`)** is a separate binary you run manually. It reads the SQLite database, renders a live color-coded keyboard heatmap using FTXUI, and refreshes every 200ms. Press `q` to quit.
-
-The two binaries never talk to each other directly — SQLite is the only shared state between them.
+**Viewer (`keystroke-stats`)** is a separate binary ran manually. It reads the SQLite database, renders a live color-coded keyboard heatmap using FTXUI, and refreshes every 200ms.
 
 ---
 
