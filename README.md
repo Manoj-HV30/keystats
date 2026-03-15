@@ -1,6 +1,6 @@
 # keystats
 
-> per-key keystroke counter that stores lifetime stats in SQLite and renders a live terminal heatmap with FTXUI
+per-key keystroke counter that stores lifetime stats in SQLite and renders a live terminal heatmap with FTXUI
 
 
 ![keystats screenshot](assets/screenshot.png)
