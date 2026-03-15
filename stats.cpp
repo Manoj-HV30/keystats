@@ -181,7 +181,7 @@ Element renderStats(const std::vector<KeyStat>& stats, const std::vector<KeyStat
     });
 
     return vbox({
-        text(" Keystroke Counter ") | bold | color(Color::Green) | hcenter,
+        text(" Keystats ") | bold | color(Color::Green) | hcenter,
         separator(),
         vbox(rows) | hcenter,
         legend | hcenter,
