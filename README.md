@@ -90,7 +90,6 @@ sudo make uninstall
 
 - [Linux Input Subsystem](https://www.kernel.org/doc/html/latest/input/input.html)
 - [SQLite C API](https://www.sqlite.org/cintro.html)
-- [SQLite Tutorial](https://www.sqlitetutorial.net)
 - [FTXUI](https://github.com/ArthurSonzogni/FTXUI)
 - [systemd.service](https://www.freedesktop.org/software/systemd/man/systemd.service.html)
 
