@@ -13,7 +13,7 @@
 #include <unistd.h>
 #include <sqlite3.h>
 
-// ─── Key name map ─────────────────────────────────────────────────────────────
+
 
 std::unordered_map<int, std::string> keyNames = {
     {KEY_ESC, "Esc"}, {KEY_F1, "F1"}, {KEY_F2, "F2"}, {KEY_F3, "F3"},
@@ -49,13 +49,11 @@ std::unordered_map<int, std::string> keyNames = {
     {KEY_KPDOT, "KP."}, {KEY_KPENTER, "KPEnter"},
 };
 
-// ─── Globals ──────────────────────────────────────────────────────────────────
-
 std::unordered_map<int, long long> keyCounts;
 sqlite3* db = nullptr;
 int      fd = -1;
 
-// ─── DB ───────────────────────────────────────────────────────────────────────
+
 
 void initDB() {
     struct passwd* pw = getpwuid(getuid());
@@ -150,7 +148,7 @@ void flushDailyToDB(int code, long long count) {
     sqlite3_step(stmt);
     sqlite3_finalize(stmt);
 }
-// ─── Device ───────────────────────────────────────────────────────────────────
+
 
 std::string findKeyboard() {
     DIR* dir = opendir("/dev/input");
@@ -192,7 +190,7 @@ std::string findKeyboard() {
     return found;
 }
 
-// ─── Signal handler ───────────────────────────────────────────────────────────
+
 
 void onExit(int) {
     flushToDB();
@@ -201,7 +199,7 @@ void onExit(int) {
     exit(0);
 }
 
-// ─── Main ─────────────────────────────────────────────────────────────────────
+
 
 int main() {
     signal(SIGINT,  onExit);

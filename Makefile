@@ -4,7 +4,7 @@ BINARY_STATS  = keystroke-stats
 SERVICE       = keystats.service
 SYSTEMD_USER  = /usr/lib/systemd/user
 
-.PHONY: all build install uninstall status logs clean
+.PHONY: all build install uninstall status logs clean setup
 
 all: build
 
@@ -12,7 +12,10 @@ build:
 	cmake -S . -B build
 	cmake --build build
 
-install: build
+setup:
+	sudo usermod -aG input $(USER)
+
+install: build setup
 	sudo cp build/$(BINARY_DAEMON) $(PREFIX)/bin/$(BINARY_DAEMON)
 	sudo cp build/$(BINARY_STATS)  $(PREFIX)/bin/$(BINARY_STATS)
 	sudo cp $(SERVICE) $(SYSTEMD_USER)/$(SERVICE)

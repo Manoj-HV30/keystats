@@ -124,7 +124,6 @@ Element renderStats(const std::vector<KeyStat>& stats, const std::vector<KeyStat
     long long maxCount = stats[0].count;
     long long total    = totalCount(stats);
 
-    // ── Heatmap ──────────────────────────────────────────────────────────────
     std::vector<Element> rows;
     for (auto& row : keyboardLayout) {
         std::vector<Element> keys;
@@ -136,7 +135,7 @@ Element renderStats(const std::vector<KeyStat>& stats, const std::vector<KeyStat
         rows.push_back(hbox(keys));
     }
 
-    // ── Lifetime top 10 ──────────────────────────────────────────────────────
+    
     std::vector<Element> topList;
     int limit = std::min((int)stats.size(), 10);
     for (int i = 0; i < limit; i++) {
@@ -152,7 +151,6 @@ Element renderStats(const std::vector<KeyStat>& stats, const std::vector<KeyStat
         );
     }
 
-    // ── Today top 5 ──────────────────────────────────────────────────────────
     long long todayTotal = totalCount(todayStats);
     std::vector<Element> todayList;
     int todayLimit = std::min((int)todayStats.size(), 5);
@@ -172,7 +170,7 @@ Element renderStats(const std::vector<KeyStat>& stats, const std::vector<KeyStat
         todayList.push_back(text("No keys pressed today yet.") | color(Color::GrayDark));
     }
 
-    // ── Legend ───────────────────────────────────────────────────────────────
+
     auto legend = hbox({
         text(" cold ") | color(Color::GrayDark),
         text("▓") | color(Color::Blue),
