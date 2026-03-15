@@ -1,0 +1,6 @@
+build/
+*.db
+*.o
+*.out
+.cache/
+compile_commands.json

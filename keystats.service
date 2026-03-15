@@ -1,0 +1,12 @@
+[Unit]
+Description=Keystats - Per-key keystroke counter
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/keystroke
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
